@@ -2,11 +2,12 @@ import axios from 'axios';
 
 export default class Doggo {
 	init() {
-		Doggo.fetchDoggo();
+		this.fetchDoggo();
 
 	}
+
 	fetchDoggo() {
-		axios.get(process.env.API_URL)
+		axios.get('http://localhost:4090/api/v1/dog')
 			.then(res => {
 				console.log(res.data);
 			})

@@ -1,1 +1,4 @@
-<self>: 1.5 KB (100%)
+axios: 35.57 KB (81.8%)
+process: 5.29 KB (12.2%)
+is-buffer: 717 B (1.61%)
+<self>: 1.91 KB (4.39%)
