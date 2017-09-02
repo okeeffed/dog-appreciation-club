@@ -1,5 +1,7 @@
 import axios from 'axios';
 import config from '../config';
+import SmoothScroll from 'smooth-scroll';
+import Loading from './loading';
 
 export default class Doggo {
 	/**
@@ -24,11 +26,19 @@ export default class Doggo {
 	 * @return {Doggo} Return Doggo instance
 	 */
 	fetchDoggo() {
+		Loading.append();
+
 		const section = document.querySelector('.doggo');
+		const hero = document.querySelector('.hero');
 		section.classList.remove('-visible');
 		window.setTimeout(() => section.classList.add('-hidden'), 300);
 
-		axios.get('http://localhost:4090/api/v1/dog')
+		const scroll = new SmoothScroll();
+		let options = { offset: 0 };
+
+		scroll.animateScroll(hero, null, options);
+
+		axios.get('https://dogappreciationclub.now.sh/api/v1/dog')
 			.then(res => {
 				const image = document.querySelector('.main-photo');
 				const grid = document.querySelector('.grid');
@@ -60,8 +70,14 @@ export default class Doggo {
 
 				section.classList.remove('-hidden');
 				section.classList.add('-visible');
+
+				options = { offset: -60 };
+				scroll.animateScroll(section, null, options);
+
+				Loading.removeFrom();
 			})
 			.catch(err => {
+				Loading.removeFrom();
 				if (!config.debug) {
 					console.log('Axios fail');
 				} else {

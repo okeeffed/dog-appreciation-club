@@ -1,9 +1,34 @@
 .hero {
 	padding: 0 10px;
+	margin-bottom: 30px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	min-height: 100vh;
 	box-sizing: border-box;
+
+	background-image: url('/img/bg-main.jpg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	.title {
+		max-width: 800px;
+		text-align: center;
+
+		@include grid-media($mobile) {
+			font-size: 3.2rem;
+		}
+	}
+
+	.byline {
+		max-width: 800px;
+		text-align: center;
+
+		@include grid-media($mobile) {
+			font-size: 1.8rem;
+			line-height: 20px;
+		}
+	}
 }

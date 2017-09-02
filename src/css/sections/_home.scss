@@ -1,17 +1,3 @@
 .home {
-	.title {
-		text-align: center;
 
-		@include grid-media($mobile) {
-			font-size: 3.2rem;
-		}
-	}
-
-	.byline {
-		text-align: center;
-
-		@include grid-media($mobile) {
-			font-size: 2.4rem;
-		}
-	}
 }
