@@ -1,0 +1,46 @@
+.doggo {
+	opacity: 0;
+
+	&.-visible {
+		opacity: 1;
+	}
+
+	.dog {
+		margin-bottom: 30px;
+
+		text-align: center;
+	}
+
+	.info {
+		margin-bottom: 30px;
+	}
+
+	.main-photo {
+		position: relative;
+
+		margin: 0 auto 30px;
+		width: 160px;
+		height: 160px;
+
+		overflow: hidden;
+
+		border-radius: 50%;
+
+		background-color: $c-black;
+
+		> img {
+			position: absolute;
+
+			display: block;
+			max-width: 220px;
+			max-height: 220px;
+			width: auto;
+			height: auto;
+
+			margin-left: 50%;
+			margin-top: 50%;
+			transform: translate(-50%, -50%);
+
+		}
+	}
+}

@@ -8,6 +8,13 @@ export default class Doggo {
 	 */
 	init() {
 		this.fetchDoggo();
+
+		const button = document.querySelector('.replace');
+		button.addEventListener('click', (e) => {
+			e.preventDefault();
+			this.fetchDoggo();
+		}, false);
+
 		return this;
 	}
 
@@ -19,22 +26,37 @@ export default class Doggo {
 	fetchDoggo() {
 		axios.get('http://localhost:4090/api/v1/dog')
 			.then(res => {
+				const image = document.querySelector('.main-photo');
 				const grid = document.querySelector('.grid');
-				const dog = document.querySelector('.dog');
+				const section = document.querySelector('.doggo');
+				section.classList.remove('-visible');
+				this.render(res.data.dog);
 
-				dog.innerText = res.data.dog.name;
+				while (image.firstChild) {
+					image.removeChild(image.firstChild);
+				}
+
+				while (grid.firstChild) {
+					grid.removeChild(grid.firstChild);
+				}
 
 				res.data.photos.map((photo, index) => {
-					if (index > 11) return;
-					const el = this.append(photo);
-					let parent = document.createElement('div');
-					parent.innerHTML = el;
+					if (index > 12) return;
 
-					/**
-					 * Continue to append to mobile grid
-					 */
-					grid.appendChild(parent.firstChild);
+					if (index === 0) {
+						const el = this.updateMain(photo);
+						let parent = document.createElement('div');
+						parent.innerHTML = el;
+						image.appendChild(parent.firstChild);
+					} else {
+						const el = this.append(photo);
+						let parent = document.createElement('div');
+						parent.innerHTML = el;
+						grid.appendChild(parent.firstChild);
+					}
 				});
+
+				section.classList.add('-visible');
 			})
 			.catch(err => {
 				if (!config.debug) {
@@ -47,7 +69,14 @@ export default class Doggo {
 		return this;
 	}
 
-
+	/**
+	 * Update main doge photo
+	 * @param  {[Object object]} photo Photo of doggo.
+	 */
+	updateMain(photo) {
+		console.log(photo);
+		return `<img src="${photo.url}" href="${photo.title}" />`;
+	}
 
 	/**
 	 * Append photo to the photo grid.
@@ -55,7 +84,7 @@ export default class Doggo {
 	 */
 	append(photo) {
 		console.log(photo);
-		return `<div class="item -six e-raised e-hover-floating a-animate">
+		return `<div class="item -six e-hover-floating a-animate">
 			<img src="${photo.url}" href="${photo.title}" />
 		</div>`;
 	}
@@ -65,9 +94,21 @@ export default class Doggo {
 	 * @param  {[Object object]} doggo Render doggo info
 	 */
 	render(doggo) {
-		console.log(doggo);
-		return `<div class="item -four e-raised e-hover-floating a-animate">
-			<img src="${doggo.dog.link}"
-		</div>`;
+		const dog = document.querySelector('.dog');
+		const info = document.querySelector('.info');
+		dog.innerText = doggo.name;
+
+		while (info.firstChild) {
+			info.removeChild(info.firstChild);
+		}
+
+		doggo.info.map(copy => {
+			const el = `<p>${copy}</p>`;
+			let parent = document.createElement('div');
+			parent.innerHTML = el;
+			info.appendChild(parent.firstChild);
+		});
+
+		return this;
 	}
 }

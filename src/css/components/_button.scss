@@ -1,7 +1,7 @@
 .button {
 	display: block;
 
-	margin-bottom: 10px;
+	margin: 0 auto 30px;
 
 	line-height: normal;
 	overflow: visible;
@@ -13,6 +13,8 @@
 	font-size: 2rem;
 
 	background-color: $c-grey;
+	text-align: center;
+	line-height: 60px;
 
 	transition: background-color $a-desktop-enter ease-in;
 	border: 0;
