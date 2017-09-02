@@ -1,7 +1,7 @@
 /* jshint node: true */
 /* global $: true */
 'use strict';
-
+require('dotenv').config();
 import babelify from 'babelify';
 import gulp from 'gulp';
 import fs from 'fs';
@@ -17,7 +17,7 @@ import through from 'through2';
 import eslint from 'gulp-eslint';
 var browserSync = require('browser-sync').create();
 var Metalsmith = require('metalsmith');
-
+const merge       	= require('merge-stream');
 const imageminPngquant = require('imagemin-pngquant');
 
 const $ = gulpLoadPlugins();
@@ -220,11 +220,11 @@ gulp.task('stylesheets', ['javascript'], (done) => {
 		.pipe($.sass({
 			style: 'expanded',
 			includePaths: paths .concat(require('node-neat').includePaths)
-			
-			
+
+
 			.concat(require('node-normalize-scss').includePaths)
-			
-			
+
+
 		}))
 		.on('error', $.sass.logError)
 		.on('error', function (e) {

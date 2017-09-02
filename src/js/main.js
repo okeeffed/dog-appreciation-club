@@ -1,9 +1,5 @@
 import Doggo from './modules/doggo';
 
-
-
-
-
 function fn(){
 	const doge = new Doggo();
 	doge.init();

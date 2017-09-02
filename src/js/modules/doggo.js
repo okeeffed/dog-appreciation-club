@@ -93,7 +93,6 @@ export default class Doggo {
 	 * @param  {[Object object]} photo Photo of doggo.
 	 */
 	updateMain(photo) {
-		console.log(photo);
 		return `<img src="${photo.url}" href="${photo.title}" />`;
 	}
 
@@ -102,7 +101,6 @@ export default class Doggo {
 	 * @param  {[Object object]} photo Photo of doggo.
 	 */
 	append(photo) {
-		console.log(photo);
 		return `<div class="item -six e-hover-floating a-animate">
 			<img src="${photo.url}" href="${photo.title}" />
 		</div>`;
