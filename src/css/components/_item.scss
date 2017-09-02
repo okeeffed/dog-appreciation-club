@@ -1,0 +1,97 @@
+.home .item {
+	border: solid $c-grey 1px;
+
+	.info {
+		position: relative;
+
+		padding: 16px;
+		height: 80px;
+	}
+
+	.image {
+		position: absolute;
+		top: 16px;
+		left: 16px;
+
+		width: 80px;
+		height: 80px;
+
+		border-radius: 50%;
+	}
+
+	.name,
+	.fullname {
+		display: block;
+		padding-left: 100px;
+
+		line-height: 20px;
+		word-wrap: break-word;
+	}
+
+	.name {
+		padding-top: 20px;
+
+		@include f-primary-semibold;
+		font-size: 1.8rem;
+	}
+
+	.fullname {
+		@include f-primary-light;
+		font-size: 1.4rem;
+	}
+
+	.details {
+		margin-bottom: 10px;
+		padding: 0 16px;
+		height: 100px;
+	}
+
+	.description {
+		margin-bottom: 0;
+	}
+
+	.button {
+		margin: 0 auto 30px;
+		text-align: center;
+		line-height: 60px;
+
+		background-color: $c-white;
+
+		transition: all $a-desktop-exit ease-out;
+
+		&:hover {
+			background-color: darken($c-white, 5%);
+			color: lighten($c-black, 10%);
+		}
+	}
+
+	.stats {
+		margin-bottom: 10px;
+		padding: 0 16px;
+	}
+
+	.icon-container {
+		display: flex;
+		align-items: center;
+		margin-bottom: 6px;
+
+		&:last-child {
+			margin-bottom: 30px;
+		}
+	}
+
+	.icon {
+		display: inline-block;
+		margin-right: 10px;
+		width: 40px;
+		height: 40px;
+	}
+
+	.stat {
+		display: inline-block;
+		margin-bottom: 0;
+
+		font-size: 1.6rem;
+		@include f-primary-semibold;
+	}
+}

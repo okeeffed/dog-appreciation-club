@@ -1,0 +1,54 @@
+.button {
+	display: block;
+
+	margin-bottom: 10px;
+
+	line-height: normal;
+	overflow: visible;
+	padding: 0;
+
+	width: 200px;
+	height: 60px;
+
+	font-size: 2rem;
+
+	background-color: $c-grey;
+
+	transition: background-color $a-desktop-enter ease-in;
+	border: 0;
+
+	&:hover {
+		background-color: darken($c-grey, 10%);
+	}
+
+	@include grid-media($mobile) {
+		transition: background-color $a-mobile-enter ease-in;
+	}
+
+	&.primary {
+		color: $c-white;
+		background-color: $c-primary;
+
+		&:hover {
+			background-color: $c-primary-dark;
+		}
+	}
+
+	&.secondary {
+		color: $c-white;
+		background-color: $c-secondary;
+
+		&:hover {
+			background-color: $c-secondary-dark;
+		}
+	}
+
+	&.raised {
+		box-shadow: $e-raised;
+	}
+
+	&.floating {
+		box-shadow: $e-floating;
+	}
+}
+

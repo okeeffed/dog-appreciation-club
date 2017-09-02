@@ -1,0 +1,162 @@
+// Typography
+
+// EXAMPLE FONT MIXIN
+// @mixin f-futura-pt-reg {
+// 	font : {
+// 		family: 'futura-pt', sans-serif;
+// 		weight: 900;
+// 		style: normal;
+// 	}
+// }
+
+// Setting default font size for rem
+
+/* open sans - light */
+@font-face {
+  font-family: 'opensans-light';
+  font-style: normal;
+  font-weight: 300;
+  src: local('OpenSans Light'), local('OpenSans-Light'),
+       url('/styles/fonts/OpenSans-Light.ttf') format('truetype'), /* Safari, Android, iOS */
+}
+
+/* open sans - medium */
+@font-face {
+  font-family: 'opensans-medium';
+  font-style: normal;
+  font-weight: 500;
+  src: local('OpenSans Medium'), local('OpenSans-Medium'),
+       url('/styles/fonts/OpenSans-Medium.ttf') format('truetype'), /* Safari, Android, iOS */
+}
+
+/* open sans - regular */
+@font-face {
+  font-family: 'opensans-regular';
+  font-style: normal;
+  font-weight: 400;
+  src: local('OpenSans Regular'), local('OpenSans-Regular'),
+       url('/styles/fonts/OpenSans-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
+}
+
+/* open sans - bold */
+@font-face {
+  font-family: 'opensans-bold';
+  font-style: normal;
+  font-weight: 700;
+  src: local('OpenSans Bold'), local('OpenSans-Bold'),
+       url('/styles/fonts/OpenSans-Bold.ttf') format('truetype'), /* Safari, Android, iOS */
+}
+
+/* open sans - semibold */
+@font-face {
+  font-family: 'opensans-semibold';
+  font-style: normal;
+  font-weight: 600;
+  src: local('OpenSans Semibold'), local('OpenSans-Semibold'),
+       url('/styles/fonts/OpenSans-Semibold.ttf') format('truetype'), /* Safari, Android, iOS */
+}
+
+// Font mixins
+@mixin f-primary-light {
+	font: {
+		family: 'opensans-light', sans-serif;
+	}
+}
+
+@mixin f-primary-regular {
+	font: {
+		family: 'opensans-regular', sans-serif;
+	}
+}
+
+@mixin f-primary-medium {
+	font: {
+		family: 'opensans-medium', sans-serif;
+	}
+}
+
+@mixin f-primary-bold {
+	font: {
+		family: 'opensans-bold', sans-serif;
+	}
+}
+
+@mixin f-primary-semibold {
+	font: {
+		family: 'opensans-semibold', sans-serif;
+	}
+}
+
+// General typography
+html {
+	font-size: 62.5%;
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+// Set default typography other html elements
+label,
+button,
+a,
+td {
+	@include f-primary-regular;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	margin: 0;
+
+	font-weight: normal;
+}
+
+h1 {
+	margin-bottom: 10px;
+
+	@include f-primary-bold;
+	font-size: 7.8rem;
+}
+
+h2 {
+	margin-bottom: 10px;
+
+	@include f-primary-semibold;
+	font-size: 2rem;
+	line-height: 40px;
+}
+
+h3 {
+	margin-bottom: 10px;
+
+	@include f-primary-semibold;
+	font-size: 1.7rem;
+	line-height: 20px;
+}
+
+p {
+	margin-bottom: 10px;
+
+	@include f-primary-regular;
+	font-size: 1.5rem;
+	line-height: 1.4;
+}
+
+code {
+	font-size: 1.2rem;
+	white-space: pre-wrap !important;
+}

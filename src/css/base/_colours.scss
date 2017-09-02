@@ -1,0 +1,23 @@
+// Colours
+$c-blue: #3498DB;
+$c-green: #2ECC71;
+$c-purple: #9B59B6;
+$c-yellow: #F1C40F;
+$c-orange: #F39C12;
+$c-red: #E74C3C;
+$c-dark-grey: #34495E;
+$c-light-grey: #ECF0F1;
+$c-grey: #BDC3C7;
+$c-black: #000;
+$c-white: #FFF;
+
+
+// Setting the states
+$c-primary: $c-blue;
+$c-primary-light: lighten($c-blue, 10%);
+$c-primary-dark: darken($c-blue, 10%);
+
+$c-secondary: $c-green;
+$c-secondary-light: lighten($c-green, 10%);
+$c-secondary-dark: darken($c-green, 10%);
+
