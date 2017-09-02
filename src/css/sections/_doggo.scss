@@ -1,8 +1,18 @@
 .doggo {
+	margin-bottom: 30px;
+
+	height: auto;
 	opacity: 0;
+
+	transition: all $a-desktop-exit ease-out;
 
 	&.-visible {
 		opacity: 1;
+	}
+
+	&.-hidden {
+		height: 0px;
+		overflow: hidden;
 	}
 
 	.dog {
@@ -13,6 +23,8 @@
 
 	.info {
 		margin-bottom: 30px;
+		padding: 0 10px;
+		box-sizing: border-box;
 	}
 
 	.main-photo {

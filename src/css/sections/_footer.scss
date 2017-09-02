@@ -1,0 +1,19 @@
+.footer {
+	height: 60px;
+	text-align: center;
+
+	> a {
+		@include f-primary-semibold;
+		line-height: 60px;
+		font-size: 1.4rem;
+
+		color: $c-black;
+
+		transition: all $a-desktop-exit ease-out;
+
+		&:hover,
+		&:focus {
+			color: lighten($c-black, 20%);
+		}
+	}
+}

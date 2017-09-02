@@ -24,12 +24,14 @@ export default class Doggo {
 	 * @return {Doggo} Return Doggo instance
 	 */
 	fetchDoggo() {
+		const section = document.querySelector('.doggo');
+		section.classList.remove('-visible');
+		window.setTimeout(() => section.classList.add('-hidden'), 300);
+
 		axios.get('http://localhost:4090/api/v1/dog')
 			.then(res => {
 				const image = document.querySelector('.main-photo');
 				const grid = document.querySelector('.grid');
-				const section = document.querySelector('.doggo');
-				section.classList.remove('-visible');
 				this.render(res.data.dog);
 
 				while (image.firstChild) {
@@ -56,6 +58,7 @@ export default class Doggo {
 					}
 				});
 
+				section.classList.remove('-hidden');
 				section.classList.add('-visible');
 			})
 			.catch(err => {
